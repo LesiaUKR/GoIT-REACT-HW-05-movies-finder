@@ -1,0 +1,31 @@
+import React from 'react'
+import { MovieInfoWrapper } from './MovieInfo.styled';
+import defaultImg from '../../images/default-movie-poster.jpg';
+
+const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
+const MovieInfo = ({details: { title, poster_path, release_date, vote_average, overview, name, genres = [] }}) => {
+    return (
+      <MovieInfoWrapper>
+        <div>
+          <img
+            src={poster_path ? BASE_IMG_URL + poster_path : defaultImg}
+            alt={title || name}
+          />
+        </div>
+        <div>
+          <h2>{title || name}</h2>
+          <p>
+            User Score:{' '}
+            {vote_average ? `${Math.round(vote_average * 10)}%` : '-'}
+          </p>
+          <h3>Overview</h3>
+          <p>{overview || 'no info'}</p>
+          <h3>Genres</h3>
+          {genres && <span>{genres.map(genre => genre.name).join(' | ')}</span>}
+        </div>
+      </MovieInfoWrapper>
+    );
+};
+
+export default MovieInfo;
