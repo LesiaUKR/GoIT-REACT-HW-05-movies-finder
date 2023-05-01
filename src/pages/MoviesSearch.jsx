@@ -4,8 +4,8 @@ import Error from 'components/Error/Error';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { Loader } from 'components/Loader/Loader';
-import { ToastContainer } from 'react-toastify';
-import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { useSearchParams } from 'react-router-dom';
 
 const Status = {
   IDLE: 'idle',
@@ -15,29 +15,21 @@ const Status = {
 };
 
 const MoviesSearch = () => {
+  
+ const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
-  const [searchText, setSearchText] = useState('');
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState(Status.IDLE);
   const [error, setError] = useState(null);
 
-  const {id} = useParams();
-  console.log('params:', id);
-
   useEffect(() => {
-    if (!searchText) {
+    if (!query) {
       return;
     }
     setStatus(Status.LOADING);
-    getMovieSearch(searchText)
+    getMovieSearch(query)
       .then(movies => {
-        // if (movies.results.length === 0) {
-        //   setError(
-        //     'Sorry, there are no images matching your search query. Please try again.'
-        //   )
-        //   return;
-        // }
-
         setMovies(movies);
         setStatus(Status.RESOLVE);
       })
@@ -46,19 +38,36 @@ const MoviesSearch = () => {
         setError(error);
         setStatus(Status.ERROR);
       });
-  }, [searchText, error]);
+  }, [query]);
 
-const onChangeQuery = searchText => {
-  setSearchText(searchText);
-  setMovies([]);
-  setError(null);
-  console.log(searchText);
-};
-
+  // const onChangeQuery = query => {
+  //   const nextParams = query !== '' ? { query } : {};
+  //   setSearchParams(nextParams);
+  //   console.log(nextParams);
+  //   setMovies([]);
+  //   setError(null);
+  //   console.log(query);
+  //    if (!query) {
+  //      return toast.error(
+  //        'Sorry, there are no films matching your search query. Please try again.'
+  //      );
+  //    }
+  // };
+  const handleSubmit = e => {
+    const nextParams = query !== '' ? { query } : {};
+      setSearchParams(nextParams);
+      console.log(nextParams);
+      console.log(query);
+    if (!query) {
+      return toast.error(
+        'Sorry, there are no films matching your search query. Please try again.'
+      );
+    }
+  };
   return (
     <>
       <ToastContainer autoClose={3000} />
-      <Searchbar onSubmit={onChangeQuery} />
+      <Searchbar onSubmit={handleSubmit} />
       {status === 'loading' && <Loader />}
       {status === Status.RESOLVE && <MoviesList movies={movies} />}
       {status === Status.ERROR && <Error error={error} />}
