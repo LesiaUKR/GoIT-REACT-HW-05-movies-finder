@@ -12,7 +12,6 @@ const Searchbar = ({ onSubmit }) => {
 
   const handleSearchQuery = event => {
     setQuery(event.currentTarget.value.toLowerCase());
-    console.log(event.currentTarget.value);
   };
 
   const handleSubmit = event => {
