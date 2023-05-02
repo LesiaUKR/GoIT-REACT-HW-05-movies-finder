@@ -1,13 +1,31 @@
 {
   "files": {
-    "main.css": "/GoIT-REACT-HW-05-movies-finder/static/css/main.7acaea2f.css",
-    "main.js": "/GoIT-REACT-HW-05-movies-finder/static/js/main.07d3183d.js",
+    "main.css": "/GoIT-REACT-HW-05-movies-finder/static/css/main.c3d5249d.css",
+    "main.js": "/GoIT-REACT-HW-05-movies-finder/static/js/main.fcb6a9e7.js",
+    "static/js/875.0274d9f5.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/875.0274d9f5.chunk.js",
+    "static/js/893.f32ef89d.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/893.f32ef89d.chunk.js",
+    "static/js/663.f68fc242.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/663.f68fc242.chunk.js",
+    "static/js/802.c70b43ed.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/802.c70b43ed.chunk.js",
+    "static/js/85.fa56223e.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/85.fa56223e.chunk.js",
+    "static/js/279.0658e50c.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/279.0658e50c.chunk.js",
+    "static/js/719.5d4ad78d.chunk.js": "/GoIT-REACT-HW-05-movies-finder/static/js/719.5d4ad78d.chunk.js",
+    "static/css/544.7c3dd9d6.chunk.css": "/GoIT-REACT-HW-05-movies-finder/static/css/544.7c3dd9d6.chunk.css",
+    "static/media/default-movie-poster.jpg": "/GoIT-REACT-HW-05-movies-finder/static/media/default-movie-poster.71253f31d01ef6cdd4cc.jpg",
+    "static/media/default-actor-image.jpg": "/GoIT-REACT-HW-05-movies-finder/static/media/default-actor-image.e1ce751ef1b590f719f9.jpg",
     "index.html": "/GoIT-REACT-HW-05-movies-finder/index.html",
-    "main.7acaea2f.css.map": "/GoIT-REACT-HW-05-movies-finder/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/main.07d3183d.js.map"
+    "main.c3d5249d.css.map": "/GoIT-REACT-HW-05-movies-finder/static/css/main.c3d5249d.css.map",
+    "main.fcb6a9e7.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/main.fcb6a9e7.js.map",
+    "875.0274d9f5.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/875.0274d9f5.chunk.js.map",
+    "893.f32ef89d.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/893.f32ef89d.chunk.js.map",
+    "663.f68fc242.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/663.f68fc242.chunk.js.map",
+    "802.c70b43ed.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/802.c70b43ed.chunk.js.map",
+    "85.fa56223e.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/85.fa56223e.chunk.js.map",
+    "279.0658e50c.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/279.0658e50c.chunk.js.map",
+    "719.5d4ad78d.chunk.js.map": "/GoIT-REACT-HW-05-movies-finder/static/js/719.5d4ad78d.chunk.js.map",
+    "544.7c3dd9d6.chunk.css.map": "/GoIT-REACT-HW-05-movies-finder/static/css/544.7c3dd9d6.chunk.css.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.c3d5249d.css",
+    "static/js/main.fcb6a9e7.js"
   ]
 }
