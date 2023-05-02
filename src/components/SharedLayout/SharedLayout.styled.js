@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
-
+import styled from 'styled-components';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -21,7 +20,7 @@ export const Header = styled.header`
 `;
 
 export const StyledLink = styled(NavLink)`
-font-size: 36px;
+  font-size: 36px;
   padding: 8px 16px;
   text-decoration: none;
   color: red;
@@ -56,5 +55,5 @@ export const BackLink = styled(Link)`
     background-color: lightblue;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
       1px 4px 6px rgba(0, 0, 0, 0.16);
-  }    
+  }
 `;

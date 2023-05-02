@@ -1,11 +1,6 @@
 import React, { useState, useRef } from 'react';
-// import PropTypes from 'prop-types';
-import {
-  Form,
-  FormField,
-  SearchButton,
-  SearchInput,
-} from './Searchbar.styled';
+
+import { Form, FormField, SearchButton, SearchInput } from './Searchbar.styled';
 import { BiSearchAlt } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,13 +12,18 @@ const Searchbar = ({ onSubmit }) => {
 
   const handleSearchQuery = event => {
     setQuery(event.currentTarget.value.toLowerCase());
-    console.log(event.currentTarget.value)
+    console.log(event.currentTarget.value);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
     if (query.trim() === '') {
       return toast.error('Введіть назву фільму');
+    }
+    if (!query) {
+      return toast.error(
+        'Sorry, there are no films matching your search query. Please try again.'
+      );
     }
     if (prevQueryRef.current !== query) {
       onSubmit(query);
@@ -54,6 +54,3 @@ const Searchbar = ({ onSubmit }) => {
 };
 
 export default Searchbar;
-// Searchbar.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };

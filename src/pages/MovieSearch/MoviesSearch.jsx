@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getMovieSearch } from 'services/moviesAPI';
 import Error from 'components/Error/Error';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { Loader } from 'components/Loader/Loader';
-import { ToastContainer, toast } from 'react-toastify';
 import { useSearchParams } from 'react-router-dom';
 
 const Status = {
@@ -15,20 +14,19 @@ const Status = {
 };
 
 const MoviesSearch = () => {
-  
- const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get('query') ?? '';
 
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState(Status.IDLE);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!query) {
+    if (!searchText) {
       return;
     }
     setStatus(Status.LOADING);
-    getMovieSearch(query)
+    getMovieSearch(searchText)
       .then(movies => {
         setMovies(movies);
         setStatus(Status.RESOLVE);
@@ -38,41 +36,21 @@ const MoviesSearch = () => {
         setError(error);
         setStatus(Status.ERROR);
       });
-  }, [query]);
+  }, [searchText]);
 
-  // const onChangeQuery = query => {
-  //   const nextParams = query !== '' ? { query } : {};
-  //   setSearchParams(nextParams);
-  //   console.log(nextParams);
-  //   setMovies([]);
-  //   setError(null);
-  //   console.log(query);
-  //    if (!query) {
-  //      return toast.error(
-  //        'Sorry, there are no films matching your search query. Please try again.'
-  //      );
-  //    }
-  // };
-  const handleSubmit = e => {
+  const onChangeQuery = query => {
     const nextParams = query !== '' ? { query } : {};
-      setSearchParams(nextParams);
-      console.log(nextParams);
-      console.log(query);
-    if (!query) {
-      return toast.error(
-        'Sorry, there are no films matching your search query. Please try again.'
-      );
-    }
+    setSearchParams(nextParams);
   };
+
   return (
     <>
-      <ToastContainer autoClose={3000} />
-      <Searchbar onSubmit={handleSubmit} />
+      <Searchbar onSubmit={onChangeQuery} />
       {status === 'loading' && <Loader />}
       {status === Status.RESOLVE && <MoviesList movies={movies} />}
       {status === Status.ERROR && <Error error={error} />}
     </>
   );
-}
+};
 
 export default MoviesSearch;

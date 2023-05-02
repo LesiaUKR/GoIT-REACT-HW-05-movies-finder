@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Error = ({error}) => {
-  return (
-    <div>
-     'Sorry, there are no films matching your search query. Please try again.'
-    </div>
-  );
-}
+const Error = ({ error }) => {
+  return <div>'Sorry, something went wrong :('</div>;
+};
 
 export default Error;

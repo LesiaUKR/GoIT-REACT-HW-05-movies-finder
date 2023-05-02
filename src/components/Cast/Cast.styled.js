@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const MovieList = styled.ul`
+export const CastList = styled.ul`
   display: grid;
-  max-width: calc(100vw - 100px);
+  max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 24px;
+  grid-gap: 12px;
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
@@ -12,7 +12,7 @@ export const MovieList = styled.ul`
   margin-left: auto;
   margin-right: auto;
 `;
-export const MovieItem = styled.li`
+export const CastItem = styled.li`
   border-radius: 6px;
   outline: 2px solid rgb(255, 49, 49, 0.5);
   transition: color 250ms ease-in-out, background-color 250ms ease-in-out,
@@ -28,29 +28,17 @@ export const MovieItem = styled.li`
 
 export const ImgWrapper = styled.div`
   border-radius: 10px;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 260px;
   > img {
     object-fit: cover;
   }
 `;
 
 export const InfoWrapper = styled.div`
+  margin-top: 10px;
   font-size: 18px;
   padding: 10px;
   overflow: hidden;
-`;
-
-export const MovieTitle = styled.h2`
-  font-size: 18px;
-  padding-top: 10px 10px;
-  overflow: hidden;
-  margin-bottom: 10px;
-`;
-
-export const MoviePoster = styled.img`
-  width: 100%;
-  height: 100%;
-  height: auto;
-  object-fit: cover;
 `;

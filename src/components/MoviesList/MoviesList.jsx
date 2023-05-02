@@ -1,13 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
-import defaultImg from '../../images/default-movie-poster.jpg'
-import { ImgWrapper, InfoWrapper, MovieItem, MovieList, MovieTitle } from './MoviesList.styled';
+import { Link, useLocation } from 'react-router-dom';
+import defaultImg from '../../images/default-movie-poster.jpg';
+import {
+  ImgWrapper,
+  InfoWrapper,
+  MovieItem,
+  MovieList,
+  MoviePoster,
+  MovieTitle,
+} from './MoviesList.styled';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 function MoviesList({ movies }) {
-  
+  const location = useLocation();
+
   return (
     <MovieList>
       {movies.map(
@@ -20,10 +27,10 @@ function MoviesList({ movies }) {
           vote_average,
           release_date,
         }) => (
-          <Link key={id} to={`movies/${id}`}>
+          <Link key={id} to={`/movies/${id}`} state={{ from: location }}>
             <MovieItem>
               <ImgWrapper>
-                <img
+                <MoviePoster
                   src={poster_path ? BASE_IMG_URL + poster_path : defaultImg}
                   alt={title || name}
                 />
